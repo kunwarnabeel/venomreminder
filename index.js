@@ -48,7 +48,7 @@ setInterval(() => {
                             if(err){
                                 console.log(err)
                             }
-                            client.sendText('923352999478@c.us', reminder.reminderMsg).then((result) => {
+                            client.sendText('0000000000@c.us', reminder.reminderMsg).then((result) => {
                                 console.log('Result: ', result); //return object success
                               })
                               .catch((erro) => {

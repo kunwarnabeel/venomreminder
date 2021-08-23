@@ -10,11 +10,13 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 
+const PORT = process.env.PORT || 9000;
+
 
 //DB config
-mongoose.connect('mongodb://localhost:27017/reminderAppDB', {
+mongoose.connect('mongodb+srv://wareminder12345:wareminder12345@cluster0.tzhfk.mongodb.net/wa_reminder?retryWrites=true&w=majority', {
     useNewUrlParser: true, 
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 }, () => console.log("DB connected"))
 const reminderSchema = new mongoose.Schema({
     reminderMsg: String,
@@ -48,7 +50,7 @@ setInterval(() => {
                             if(err){
                                 console.log(err)
                             }
-                            client.sendText('0000000000@c.us', reminder.reminderMsg).then((result) => {
+                            client.sendText('923352999478@c.us', reminder.reminderMsg).then((result) => {
                                 console.log('Result: ', result); //return object success
                               })
                               .catch((erro) => {
@@ -111,4 +113,4 @@ app.post("/deleteReminder", (req, res) => {
     })
 })
 
-app.listen(9000, () => console.log("Be started"))
+app.listen(PORT, () => console.log("Be started"))

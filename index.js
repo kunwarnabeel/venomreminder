@@ -15,8 +15,10 @@ const PORT = process.env.PORT || 9000;
 
 //DB config
 mongoose.connect('mongodb+srv://wareminder12345:wareminder12345@cluster0.tzhfk.mongodb.net/wa_reminder?retryWrites=true&w=majority', {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true,
+    useNewUrlParser:true,
+    useCreateIndex:true,
+    useUnifiedTopology:true,
+    useFindAndModify:false
 }, () => console.log("DB connected"))
 const reminderSchema = new mongoose.Schema({
     reminderMsg: String,
